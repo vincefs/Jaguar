@@ -14,6 +14,9 @@
 		662AE0A61A561EFD00491E3D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 662AE0A51A561EFD00491E3D /* Images.xcassets */; };
 		662AE0A91A561EFD00491E3D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 662AE0A71A561EFD00491E3D /* LaunchScreen.xib */; };
 		662AE0B51A561EFD00491E3D /* JaguarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AE0B41A561EFD00491E3D /* JaguarTests.m */; };
+		66616B791A56480100593B0E /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = 66616B781A56480100593B0E /* Todo.m */; };
+		66616B7D1A56492F00593B0E /* MovingTodo.m in Sources */ = {isa = PBXBuildFile; fileRef = 66616B7C1A56492F00593B0E /* MovingTodo.m */; };
+		66616B811A564C4700593B0E /* StaticTodo.m in Sources */ = {isa = PBXBuildFile; fileRef = 66616B801A564C4700593B0E /* StaticTodo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		662AE0AE1A561EFD00491E3D /* JaguarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JaguarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		662AE0B31A561EFD00491E3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		662AE0B41A561EFD00491E3D /* JaguarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JaguarTests.m; sourceTree = "<group>"; };
+		66616B771A56480100593B0E /* Todo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
+		66616B781A56480100593B0E /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
+		66616B7B1A56492F00593B0E /* MovingTodo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingTodo.h; sourceTree = "<group>"; };
+		66616B7C1A56492F00593B0E /* MovingTodo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovingTodo.m; sourceTree = "<group>"; };
+		66616B7F1A564C4700593B0E /* StaticTodo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticTodo.h; sourceTree = "<group>"; };
+		66616B801A564C4700593B0E /* StaticTodo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticTodo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +94,7 @@
 				662AE09D1A561EFD00491E3D /* AppDelegate.m */,
 				662AE09F1A561EFD00491E3D /* ViewController.h */,
 				662AE0A01A561EFD00491E3D /* ViewController.m */,
+				66616B7A1A56480400593B0E /* Models */,
 				662AE0A21A561EFD00491E3D /* Main.storyboard */,
 				662AE0A51A561EFD00491E3D /* Images.xcassets */,
 				662AE0A71A561EFD00491E3D /* LaunchScreen.xib */,
@@ -119,6 +129,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		66616B7A1A56480400593B0E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				66616B771A56480100593B0E /* Todo.h */,
+				66616B781A56480100593B0E /* Todo.m */,
+				66616B7B1A56492F00593B0E /* MovingTodo.h */,
+				66616B7C1A56492F00593B0E /* MovingTodo.m */,
+				66616B7F1A564C4700593B0E /* StaticTodo.h */,
+				66616B801A564C4700593B0E /* StaticTodo.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,6 +152,7 @@
 				662AE0911A561EFD00491E3D /* Sources */,
 				662AE0921A561EFD00491E3D /* Frameworks */,
 				662AE0931A561EFD00491E3D /* Resources */,
+				66616B7E1A564AE700593B0E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -214,6 +238,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		66616B7E1A564AE700593B0E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		662AE0911A561EFD00491E3D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -222,6 +262,9 @@
 				662AE0A11A561EFD00491E3D /* ViewController.m in Sources */,
 				662AE09E1A561EFD00491E3D /* AppDelegate.m in Sources */,
 				662AE09B1A561EFD00491E3D /* main.m in Sources */,
+				66616B811A564C4700593B0E /* StaticTodo.m in Sources */,
+				66616B791A56480100593B0E /* Todo.m in Sources */,
+				66616B7D1A56492F00593B0E /* MovingTodo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +457,7 @@
 				662AE0BA1A561EFD00491E3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		662AE0BB1A561EFD00491E3D /* Build configuration list for PBXNativeTarget "JaguarTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +466,7 @@
 				662AE0BD1A561EFD00491E3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
