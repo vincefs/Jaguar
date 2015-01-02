@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E0735F71A5750DD00A82EF8 /* Jaguar.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 1E0735F61A5750DD00A82EF8 /* Jaguar.xcdatamodel */; };
+		1EAF8D621A57527100E2D9EF /* DBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAF8D611A57527100E2D9EF /* DBHelper.m */; };
+		1EAF8D641A5752B600E2D9EF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAF8D631A5752B600E2D9EF /* CoreData.framework */; };
 		662AE09B1A561EFD00491E3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AE09A1A561EFD00491E3D /* main.m */; };
 		662AE09E1A561EFD00491E3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AE09D1A561EFD00491E3D /* AppDelegate.m */; };
 		662AE0A11A561EFD00491E3D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AE0A01A561EFD00491E3D /* ViewController.m */; };
@@ -32,6 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E0735F61A5750DD00A82EF8 /* Jaguar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Jaguar.xcdatamodel; sourceTree = "<group>"; };
+		1EAF8D601A57526B00E2D9EF /* DBHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBHelper.h; sourceTree = "<group>"; };
+		1EAF8D611A57527100E2D9EF /* DBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBHelper.m; sourceTree = "<group>"; };
+		1EAF8D631A5752B600E2D9EF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		662AE0951A561EFD00491E3D /* Jaguar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jaguar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		662AE0991A561EFD00491E3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		662AE09A1A561EFD00491E3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -59,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EAF8D641A5752B600E2D9EF /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +83,7 @@
 		662AE08C1A561EFD00491E3D = {
 			isa = PBXGroup;
 			children = (
+				1EAF8D631A5752B600E2D9EF /* CoreData.framework */,
 				662AE0971A561EFD00491E3D /* Jaguar */,
 				662AE0B11A561EFD00491E3D /* JaguarTests */,
 				662AE0961A561EFD00491E3D /* Products */,
@@ -94,12 +103,14 @@
 			isa = PBXGroup;
 			children = (
 				662AE09C1A561EFD00491E3D /* AppDelegate.h */,
+				662AE09D1A561EFD00491E3D /* AppDelegate.m */,
 				66D8F0271A572C2B003F7BEE /* Moving_thumbnail.png */,
 				66D8F0281A572C2B003F7BEE /* Static_thumbnail.png */,
 				66D8F0291A572C2B003F7BEE /* All_thumbnail.png */,
-				662AE09D1A561EFD00491E3D /* AppDelegate.m */,
 				662AE09F1A561EFD00491E3D /* ViewController.h */,
 				662AE0A01A561EFD00491E3D /* ViewController.m */,
+				1EAF8D601A57526B00E2D9EF /* DBHelper.h */,
+				1EAF8D611A57527100E2D9EF /* DBHelper.m */,
 				66616B7A1A56480400593B0E /* Models */,
 				662AE0A21A561EFD00491E3D /* Main.storyboard */,
 				662AE0A51A561EFD00491E3D /* Images.xcassets */,
@@ -112,6 +123,7 @@
 		662AE0981A561EFD00491E3D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1E0735F61A5750DD00A82EF8 /* Jaguar.xcdatamodel */,
 				662AE0991A561EFD00491E3D /* Info.plist */,
 				662AE09A1A561EFD00491E3D /* main.m */,
 			);
@@ -270,6 +282,8 @@
 				662AE0A11A561EFD00491E3D /* ViewController.m in Sources */,
 				66D8F02F1A572EF8003F7BEE /* MovingTodo.m in Sources */,
 				662AE09E1A561EFD00491E3D /* AppDelegate.m in Sources */,
+				1E0735F71A5750DD00A82EF8 /* Jaguar.xcdatamodel in Sources */,
+				1EAF8D621A57527100E2D9EF /* DBHelper.m in Sources */,
 				662AE09B1A561EFD00491E3D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
