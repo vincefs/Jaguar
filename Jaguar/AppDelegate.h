@@ -21,7 +21,6 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-
 //lcs
 @end
 

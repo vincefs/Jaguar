@@ -19,10 +19,40 @@
 
 - (instancetype)initWithTitle:(NSString *)aTitle importance:(MovingTodoImportance)anImportance date:(NSDate *)aDate
 {
-    if (self = [super initWithTitle:aTitle]) {
+    if (self = [super init]) {
         self.title = aTitle;
         self.importance = anImportance;
         self.date = aDate;
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithTitle:(NSString *)aTitle
+{
+    if (self = [super init]) {
+        self.title = aTitle;
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithTitle:(NSString *)aTitle notes:(NSString *)aNote
+{
+    if (self = [super init]) {
+        self.title = aTitle;
+        self.notes = aNote;
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithTitle:(NSString *)aTitle notes:(NSString *)aNote URL:(NSURL *)aURL
+{
+    if (self = [super init]) {
+        self.title = aTitle;
+        self.notes = aNote;
+        self.URL = aURL;
     }
     
     return self;

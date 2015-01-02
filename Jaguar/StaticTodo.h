@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Rebel Cookie. All rights reserved.
 //
 
-#import "Todo.h"
+#import <Foundation/Foundation.h>
 
-@interface StaticTodo : Todo
+@interface StaticTodo : NSObject
 
 @end
