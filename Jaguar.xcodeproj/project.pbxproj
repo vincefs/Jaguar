@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E0735F71A5750DD00A82EF8 /* Jaguar.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 1E0735F61A5750DD00A82EF8 /* Jaguar.xcdatamodel */; };
 		1EAF8D621A57527100E2D9EF /* DBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAF8D611A57527100E2D9EF /* DBHelper.m */; };
 		1EAF8D641A5752B600E2D9EF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAF8D631A5752B600E2D9EF /* CoreData.framework */; };
+		1EAF8D691A5757FF00E2D9EF /* Jaguar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EAF8D671A5757FF00E2D9EF /* Jaguar.xcdatamodeld */; };
 		662AE09B1A561EFD00491E3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AE09A1A561EFD00491E3D /* main.m */; };
 		662AE09E1A561EFD00491E3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AE09D1A561EFD00491E3D /* AppDelegate.m */; };
 		662AE0A11A561EFD00491E3D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AE0A01A561EFD00491E3D /* ViewController.m */; };
@@ -35,10 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E0735F61A5750DD00A82EF8 /* Jaguar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Jaguar.xcdatamodel; sourceTree = "<group>"; };
 		1EAF8D601A57526B00E2D9EF /* DBHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBHelper.h; sourceTree = "<group>"; };
 		1EAF8D611A57527100E2D9EF /* DBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBHelper.m; sourceTree = "<group>"; };
 		1EAF8D631A5752B600E2D9EF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1EAF8D681A5757FF00E2D9EF /* Jaguar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Jaguar.xcdatamodel; sourceTree = "<group>"; };
 		662AE0951A561EFD00491E3D /* Jaguar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jaguar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		662AE0991A561EFD00491E3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		662AE09A1A561EFD00491E3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -116,6 +116,7 @@
 				662AE0A51A561EFD00491E3D /* Images.xcassets */,
 				662AE0A71A561EFD00491E3D /* LaunchScreen.xib */,
 				662AE0981A561EFD00491E3D /* Supporting Files */,
+				1EAF8D671A5757FF00E2D9EF /* Jaguar.xcdatamodeld */,
 			);
 			path = Jaguar;
 			sourceTree = "<group>";
@@ -123,7 +124,6 @@
 		662AE0981A561EFD00491E3D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1E0735F61A5750DD00A82EF8 /* Jaguar.xcdatamodel */,
 				662AE0991A561EFD00491E3D /* Info.plist */,
 				662AE09A1A561EFD00491E3D /* main.m */,
 			);
@@ -282,9 +282,9 @@
 				662AE0A11A561EFD00491E3D /* ViewController.m in Sources */,
 				66D8F02F1A572EF8003F7BEE /* MovingTodo.m in Sources */,
 				662AE09E1A561EFD00491E3D /* AppDelegate.m in Sources */,
-				1E0735F71A5750DD00A82EF8 /* Jaguar.xcdatamodel in Sources */,
 				1EAF8D621A57527100E2D9EF /* DBHelper.m in Sources */,
 				662AE09B1A561EFD00491E3D /* main.m in Sources */,
+				1EAF8D691A5757FF00E2D9EF /* Jaguar.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +489,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1EAF8D671A5757FF00E2D9EF /* Jaguar.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1EAF8D681A5757FF00E2D9EF /* Jaguar.xcdatamodel */,
+			);
+			currentVersion = 1EAF8D681A5757FF00E2D9EF /* Jaguar.xcdatamodel */;
+			path = Jaguar.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 662AE08D1A561EFD00491E3D /* Project object */;
 }
