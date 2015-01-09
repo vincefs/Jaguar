@@ -1,20 +1,20 @@
 //
-//  MovingTodo.h
+//  Todo.h
 //  Jaguar
 //
-//  Created by Vinícius Sposito on 1/2/15.
+//  Created by Vinícius Sposito on 1/4/15.
 //  Copyright (c) 2015 Rebel Cookie. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface MovingTodo : NSObject
-
-typedef NS_ENUM(NSInteger, MovingTodoImportance) {
+typedef NS_ENUM(NSInteger, TodoImportance) {
     MovingTodoImportanceLow,
     MovingTodoImportanceMedium,
     MovingTodoImportanceHigh
 };
+
+@interface Todo : NSObject
 
 /* Lista de coisas quem ambos os todos tem:
  Titulo
@@ -27,14 +27,30 @@ typedef NS_ENUM(NSInteger, MovingTodoImportance) {
  */
 
 @property (strong, nonatomic) NSString *title;
-@property (nonatomic) MovingTodoImportance importance;
+@property (nonatomic) TodoImportance importance;
 @property (strong, nonatomic) NSDate *date;
 @property (strong, nonatomic) NSString *notes;
 @property (strong, nonatomic) NSURL *URL;
 
-- (instancetype)initWithTitle:(NSString *)aTitle importance:(MovingTodoImportance)anImportance date:(NSDate *)aDate;
+// StaticTodo
 - (instancetype)initWithTitle:(NSString *)aTitle; // For todos that do not have anything but a title
 - (instancetype)initWithTitle:(NSString *)aTitle notes:(NSString *)aNote;
 - (instancetype)initWithTitle:(NSString *)aTitle notes:(NSString *)aNote URL:(NSURL *)aURL;
+
+// Moving todo
+- (instancetype)initWithTitle:(NSString *)aTitle
+                   importance:(TodoImportance)anImportance
+                         date:(NSDate *)aDate;
+
+- (instancetype)initWithTitle:(NSString *)aTitle
+                   importance:(TodoImportance)anImportance
+                         date:(NSDate *)aDate
+                        notes:(NSString *)aNote;
+
+- (instancetype)initWithTitle:(NSString *)aTitle
+                   importance:(TodoImportance)anImportance
+                         date:(NSDate *)aDate
+                        notes:(NSString *)aNote
+                          URL:(NSURL *)aURL;
 
 @end

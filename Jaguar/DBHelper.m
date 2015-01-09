@@ -7,10 +7,11 @@
 //
 
 #import "DBHelper.h"
+#import "Todo.h"
+
 @implementation DBHelper
 
-
--(instancetype)initWithContext:(NSManagedObjectContext *)context{
+- (instancetype)initWithContext:(NSManagedObjectContext *)context{
     if (self = [super init]) {
         _context = context;
     }
@@ -20,7 +21,7 @@
 
 -(void)SaveTodo:(Todo *)todo{
     
-    NSManagedObject	*ToDo = [NSEntityDescription insertNewObjectForEntityForName:@"Todo" inManagedObjectContext:_context];
+    NSManagedObject	*todoObject = [NSEntityDescription insertNewObjectForEntityForName:@"Todo" inManagedObjectContext:_context];
     
     NSError *error;
     

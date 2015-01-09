@@ -7,6 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "AddViewController.h"
+#import "AllTodosViewController.h"
+#import "MovingTodosViewController.h"
+#import "StaticTodosViewController.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -36,11 +40,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.navigationItem.title = @"Jaguar ß";
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)addTodo:(id)sender
+{
+    // Pushes a view controller to let the user add a new todo
+    NSLog(@"%s at %s", __FILE__, __PRETTY_FUNCTION__);
+    
+    [self performSegueWithIdentifier:@"showAddController" sender:self];
 }
 
 #pragma mark - Table view data source
@@ -72,11 +86,45 @@
     return cell;
 }
 
-#pragma mark - Table view devegate
+#pragma mark - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 100;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+        {
+            // All
+            
+            AllTodosViewController *allController = [self.storyboard instantiateViewControllerWithIdentifier:@"allController"];
+            [self.navigationController pushViewController:allController animated:YES];
+        }
+            break;
+            
+        case 1:
+        {
+            // Moving
+            
+            MovingTodosViewController *movingController = [self.storyboard instantiateViewControllerWithIdentifier:@"movingController"];
+            [self.navigationController pushViewController:movingController animated:YES];
+        }
+            break;
+            
+        case 2:
+        {
+            // Static
+            
+            StaticTodosViewController *staticController = [self.storyboard instantiateViewControllerWithIdentifier:@"staticController"];
+            [self.navigationController pushViewController:staticController animated:YES];
+        }
+            
+        default:
+            break;
+    }
 }
 
 @end

@@ -59,7 +59,6 @@
         return _managedObjectModel;
     }
     
-#warning Potential incorrect name 'jaguara'
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Jaguar" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
