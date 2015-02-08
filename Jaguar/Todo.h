@@ -53,4 +53,12 @@ typedef NS_ENUM(NSInteger, TodoImportance) {
                         notes:(NSString *)aNote
                           URL:(NSURL *)aURL;
 
+//Object Methods
+-(void)save;
+
+//Static Methods
+
++ (NSArray *)getStatic;
++ (NSArray *)getMoving;
+
 @end

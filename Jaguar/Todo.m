@@ -119,4 +119,36 @@
     [context save:&jooj];
 }
 
++ (NSArray *)getStatic{
+    AppDelegate *AppDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context =[AppDelegate managedObjectContext];
+    
+    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"StaticTodo" inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDesc];
+    
+    
+    NSError *error;
+    NSArray *todos = [context executeFetchRequest:request
+                                              error:&error];
+    return todos;
+}
+
++ (NSArray *)getMoving{
+    AppDelegate *AppDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context =[AppDelegate managedObjectContext];
+    
+    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"MovingTodo" inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDesc];
+    
+    
+    NSError *error;
+    NSArray *todos = [context executeFetchRequest:request
+                                            error:&error];
+    return todos;
+}
+
 @end
