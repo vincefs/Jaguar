@@ -7,7 +7,8 @@
 //
 
 #import "Todo.h"
-
+#import "AppDelegate.h"
+#import <CoreData/CoreData.h>
 @implementation Todo
 
 - (instancetype)init
@@ -94,6 +95,28 @@
     }
     
     return self;
+}
+
+- (void)save{
+    AppDelegate * delegate = [[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext * context = [delegate managedObjectContext];
+    NSManagedObject *newTodo;
+    if(self.date == nil){
+        newTodo = [NSEntityDescription insertNewObjectForEntityForName:@"StaticTodo" inManagedObjectContext:context];
+        [newTodo setValue:self.title forKey:@"title"];
+        [newTodo setValue:self.notes forKey:@"note"];
+        [newTodo setValue:[NSString stringWithFormat:@"%@",_URL] forKey:@"url"];
+    }else{
+        newTodo = [NSEntityDescription insertNewObjectForEntityForName:@"MovingTodo" inManagedObjectContext:context];
+        [newTodo setValue:self.title forKey:@"title"];
+        [newTodo setValue:self.notes forKey:@"note"];
+        [newTodo setValue:[NSString stringWithFormat:@"%@",_URL] forKey:@"url"];
+        NSNumber * numba = [NSNumber numberWithInt:_importance];
+        [newTodo setValue:numba forKey:@"importance"];
+    }
+    
+    NSError * jooj;
+    [context save:&jooj];
 }
 
 @end
