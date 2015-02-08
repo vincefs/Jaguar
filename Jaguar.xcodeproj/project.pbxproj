@@ -22,8 +22,9 @@
 		66600F281A60952000E92A6E /* StaticTodosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66600F271A60952000E92A6E /* StaticTodosViewController.m */; };
 		66600F2B1A60957800E92A6E /* StaticTodoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66600F2A1A60957800E92A6E /* StaticTodoView.m */; };
 		66600F2F1A60964B00E92A6E /* MovingTodoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66600F2E1A60964B00E92A6E /* MovingTodoView.m */; };
+		66A7C92D1A75E1D1007E113A /* AddMovingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A7C92A1A75E1D1007E113A /* AddMovingController.m */; };
+		66A7C92E1A75E1D1007E113A /* AddStaticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A7C92C1A75E1D1007E113A /* AddStaticViewController.m */; };
 		66D2EE7C1A59124300588351 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D2EE7B1A59124300588351 /* Todo.m */; };
-		66D2EE7F1A59130500588351 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D2EE7E1A59130500588351 /* AddViewController.m */; };
 		66D8F02A1A572C2B003F7BEE /* Moving_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 66D8F0271A572C2B003F7BEE /* Moving_thumbnail.png */; };
 		66D8F02B1A572C2B003F7BEE /* Static_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 66D8F0281A572C2B003F7BEE /* Static_thumbnail.png */; };
 		66D8F02C1A572C2B003F7BEE /* All_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 66D8F0291A572C2B003F7BEE /* All_thumbnail.png */; };
@@ -67,10 +68,12 @@
 		66600F2A1A60957800E92A6E /* StaticTodoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticTodoView.m; sourceTree = "<group>"; };
 		66600F2D1A60964B00E92A6E /* MovingTodoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingTodoView.h; sourceTree = "<group>"; };
 		66600F2E1A60964B00E92A6E /* MovingTodoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovingTodoView.m; sourceTree = "<group>"; };
+		66A7C9291A75E1D1007E113A /* AddMovingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMovingController.h; sourceTree = "<group>"; };
+		66A7C92A1A75E1D1007E113A /* AddMovingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMovingController.m; sourceTree = "<group>"; };
+		66A7C92B1A75E1D1007E113A /* AddStaticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddStaticViewController.h; sourceTree = "<group>"; };
+		66A7C92C1A75E1D1007E113A /* AddStaticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddStaticViewController.m; sourceTree = "<group>"; };
 		66D2EE7A1A59124300588351 /* Todo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
 		66D2EE7B1A59124300588351 /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
-		66D2EE7D1A59130500588351 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
-		66D2EE7E1A59130500588351 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 		66D8F0271A572C2B003F7BEE /* Moving_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Moving_thumbnail.png; sourceTree = "<group>"; };
 		66D8F0281A572C2B003F7BEE /* Static_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Static_thumbnail.png; sourceTree = "<group>"; };
 		66D8F0291A572C2B003F7BEE /* All_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = All_thumbnail.png; sourceTree = "<group>"; };
@@ -165,14 +168,16 @@
 			children = (
 				662AE09F1A561EFD00491E3D /* ViewController.h */,
 				662AE0A01A561EFD00491E3D /* ViewController.m */,
-				66D2EE7D1A59130500588351 /* AddViewController.h */,
-				66D2EE7E1A59130500588351 /* AddViewController.m */,
 				66600F201A60950200E92A6E /* AllTodosViewController.h */,
 				66600F211A60950200E92A6E /* AllTodosViewController.m */,
 				66600F231A60951700E92A6E /* MovingTodosViewController.h */,
 				66600F241A60951700E92A6E /* MovingTodosViewController.m */,
 				66600F261A60952000E92A6E /* StaticTodosViewController.h */,
 				66600F271A60952000E92A6E /* StaticTodosViewController.m */,
+				66A7C9291A75E1D1007E113A /* AddMovingController.h */,
+				66A7C92A1A75E1D1007E113A /* AddMovingController.m */,
+				66A7C92B1A75E1D1007E113A /* AddStaticViewController.h */,
+				66A7C92C1A75E1D1007E113A /* AddStaticViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -329,16 +334,17 @@
 			files = (
 				662AE0A11A561EFD00491E3D /* ViewController.m in Sources */,
 				662AE09E1A561EFD00491E3D /* AppDelegate.m in Sources */,
+				66A7C92E1A75E1D1007E113A /* AddStaticViewController.m in Sources */,
 				66600F251A60951700E92A6E /* MovingTodosViewController.m in Sources */,
 				66600F2B1A60957800E92A6E /* StaticTodoView.m in Sources */,
 				1EAF8D621A57527100E2D9EF /* DBHelper.m in Sources */,
 				662AE09B1A561EFD00491E3D /* main.m in Sources */,
 				66600F221A60950200E92A6E /* AllTodosViewController.m in Sources */,
+				66A7C92D1A75E1D1007E113A /* AddMovingController.m in Sources */,
 				1EAF8D691A5757FF00E2D9EF /* Jaguar.xcdatamodeld in Sources */,
 				66600F2F1A60964B00E92A6E /* MovingTodoView.m in Sources */,
 				66D2EE7C1A59124300588351 /* Todo.m in Sources */,
 				66600F281A60952000E92A6E /* StaticTodosViewController.m in Sources */,
-				66D2EE7F1A59130500588351 /* AddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -77,7 +77,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="1Vr-Sq-ITi" kind="presentation" identifier="showAddController" id="VBO-5K-YCN"/>
+                        <segue destination="1Vr-Sq-ITi" kind="presentation" identifier="showAddMovingController" id="VBO-5K-YCN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -102,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="2968" y="378"/>
         </scene>
-        <!--Add View Controller-->
+        <!--Add Moving Controller-->
         <scene sceneID="6Lq-hJ-x7p">
             <objects>
-                <viewController id="drA-gB-prI" customClass="AddViewController" sceneMemberID="viewController">
+                <viewController id="drA-gB-prI" customClass="AddMovingController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jEx-rP-2Qf"/>
                         <viewControllerLayoutGuide type="bottom" id="gtS-bA-ld3"/>
@@ -142,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSp-6z-lJG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2684" y="1054"/>
+            <point key="canvasLocation" x="2676" y="1054"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="29G-rP-9ZT">
@@ -178,7 +178,67 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Imi-wZ-amy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1981" y="1054"/>
+            <point key="canvasLocation" x="1971" y="1054"/>
+        </scene>
+        <!--Add Static View Controller-->
+        <scene sceneID="mWo-cY-NZd">
+            <objects>
+                <viewController id="ZJS-bg-pin" customClass="AddStaticViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z1R-Cg-Jcc"/>
+                        <viewControllerLayoutGuide type="bottom" id="ele-Wc-N66"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wYw-b9-sdJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="nvd-Yv-0mM">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZJS-bg-pin" id="tv8-L0-F3v"/>
+                                    <outlet property="delegate" destination="ZJS-bg-pin" id="nai-01-hzH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nvd-Yv-0mM" firstAttribute="top" secondItem="wYw-b9-sdJ" secondAttribute="top" id="Hgz-ek-AaI"/>
+                            <constraint firstItem="nvd-Yv-0mM" firstAttribute="leading" secondItem="wYw-b9-sdJ" secondAttribute="leading" id="OLL-K9-M0b"/>
+                            <constraint firstAttribute="trailing" secondItem="nvd-Yv-0mM" secondAttribute="trailing" id="bTg-VT-PdO"/>
+                            <constraint firstItem="nvd-Yv-0mM" firstAttribute="bottom" secondItem="ele-Wc-N66" secondAttribute="top" id="u2K-Fh-4Th"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Q7q-bD-FFd">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="xBO-hg-1Oz"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="Zqj-b2-EMI">
+                            <connections>
+                                <action selector="addTodoToList:" destination="ZJS-bg-pin" id="eZr-f2-g1F"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O0z-O9-9PP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2694" y="1322"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3wG-aI-SXS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ENz-CW-dbc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="m1l-y9-puS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZJS-bg-pin" kind="relationship" relationship="rootViewController" id="Z5C-kc-TsU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UcF-jG-AG3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1989" y="1322"/>
         </scene>
     </scenes>
 </document>

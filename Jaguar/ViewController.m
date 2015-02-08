@@ -7,12 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "AddViewController.h"
+#import "AddMovingController.h"
 #import "AllTodosViewController.h"
 #import "MovingTodosViewController.h"
 #import "StaticTodosViewController.h"
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) NSArray *dataSource;
 @property (strong, nonatomic) NSArray *imageThumbnails;
@@ -54,7 +54,37 @@
     // Pushes a view controller to let the user add a new todo
     NSLog(@"%s at %s", __FILE__, __PRETTY_FUNCTION__);
     
-    [self performSegueWithIdentifier:@"showAddController" sender:self];
+    UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:@"What kind of todo do you want to add?"
+                                                      delegate:self
+                                             cancelButtonTitle:@"Cancel"
+                                        destructiveButtonTitle:nil
+                                             otherButtonTitles:nil];
+    
+    for (NSString *title in [NSArray arrayWithObjects:@"Moving", @"Static", nil]) {
+        [sheet addButtonWithTitle:title];
+    }
+    
+    [sheet showInView:self.view];
+}
+
+#pragma mark - Action sheet delegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 1:
+            NSLog(@"Moving");
+            [self performSegueWithIdentifier:@"showAddMovingController" sender:self];
+            break;
+            
+        case 2:
+            NSLog(@"sa");
+            [self performSegueWithIdentifier:@"showAddStaticController" sender:self];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 #pragma mark - Table view data source

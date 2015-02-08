@@ -7,17 +7,30 @@
 //
 
 #import "MovingTodosViewController.h"
+#import <CoreData/CoreData.h>
 
 @interface MovingTodosViewController ()
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end
 
 @implementation MovingTodosViewController
 
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"Moving Todos";
+    [self getTodos];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,14 +38,31 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)getTodos
+{
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"MovingTodo" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+//    // Set example predicate and sort orderings...
+//    NSNumber *minimumSalary = ...;
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+//                              @"(lastName LIKE[c] 'Worsley') AND (salary > %@)", minimumSalary];
+//    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"title" ascending:NO];
+    [request setSortDescriptors:@[sortDescriptor]];
+    
+    NSError *error;
+    NSArray *array = [moc executeFetchRequest:request error:&error];
+    NSLog(@"%@", array);
+    if (array == nil)
+    {
+        // Deal with error...
+    }
 }
-*/
 
 @end

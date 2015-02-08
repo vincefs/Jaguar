@@ -1,30 +1,43 @@
 //
-//  AddViewController.m
+//  AddMovingController.m
 //  Jaguar
 //
-//  Created by Vinícius Sposito on 1/4/15.
+//  Created by Vinícius Sposito on 1/9/15.
 //  Copyright (c) 2015 Rebel Cookie. All rights reserved.
 //
 
-#import "AddViewController.h"
+#import "AddMovingController.h"
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
 
-@interface AddViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface AddMovingController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSArray *fields;
 @property (strong, nonatomic) NSArray *selectables;
 @property (strong, nonatomic) NSMutableArray *UIFields;
+@property (strong, nonatomic) UISegmentedControl *importanceSegmentedControl;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end
 
-@implementation AddViewController
+@implementation AddMovingController
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.fields = @[@"Title", @"Notes", @"URL"];
     self.selectables = @[@"Importance", @"Date"];
+    self.UIFields = [[NSMutableArray alloc] init];
+    NSLog(@"%s" __FILE__, __PRETTY_FUNCTION__);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,21 +47,24 @@
 
 - (IBAction)addTodoToList:(id)sender
 {
-    for (UITextField *textField in self.UIFields) {
-        NSLog(@"s");
-        if (textField.tag > 1 && ![textField.text isEqualToString:@""]) {
-            // Entao o usuario colocou informacoes suficientes para a cell ser uma moving cell
-            
-            NSLog(@"Added Moving");
-            AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-            NSManagedObject *obj = [NSEntityDescription insertNewObjectForEntityForName:@"Todo"
-                                                                    inManagedObjectContext:delegate.managedObjectContext];
-            [obj setValue:[(UITextField *)[self.UIFields objectAtIndex:0] text] forKey:@"title"];
-        } else {
-            // O usuario decidiu colocar so um titulo, entao e uma static cell
-        }
+    if ([[(UITextField *)[self.UIFields objectAtIndex:0] text] isEqualToString:@""] || [[(UITextField *)[self.UIFields objectAtIndex:1] text] isEqualToString:@""] || [[(UITextField *)[self.UIFields objectAtIndex:2] text] isEqualToString:@""]) {
+        return;
+        // Show error view or something
     }
     
+    NSManagedObjectContext *context = self.self.managedObjectContext;
+    NSManagedObject *obj = [NSEntityDescription insertNewObjectForEntityForName:@"MovingTodo"
+                                                         inManagedObjectContext:context];
+    
+    [obj setValue:[(UITextField *)[self.UIFields objectAtIndex:0] text] forKey:@"title"];
+    [obj setValue:[(UITextField *)[self.UIFields objectAtIndex:1] text] forKey:@"note"];
+    [obj setValue:[(UITextField *)[self.UIFields objectAtIndex:2] text] forKey:@"url"];
+    [obj setValue:[NSNumber numberWithInteger:self.importanceSegmentedControl.selectedSegmentIndex] forKey:@"importance"];
+    
+    NSError *error;
+    [context save:&error];
+    // TODO: setup date selector
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -92,7 +108,6 @@
         cell.textLabel.text = text;
         
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(70, 0, self.view.bounds.size.width - 80, 44)];
-        // textField.textAlignment = NSTextAlignmentRight;
         textField.tag = indexPath.row + 1;
         [cell.contentView addSubview:textField];
         [self.UIFields addObject:textField];
@@ -101,9 +116,10 @@
         cell.textLabel.text = text;
         if ([text isEqualToString:@"Importance"]) {
             NSArray *itemArray = [NSArray arrayWithObjects: @"Low", @"Medium", @"High", nil];
-            UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
-            segmentedControl.frame = CGRectMake(115, (44 / 2) - (29 / 2), self.view.bounds.size.width - 125, 29);
-            [cell.contentView addSubview:segmentedControl];
+            self.importanceSegmentedControl= [[UISegmentedControl alloc] initWithItems:itemArray];
+            self.importanceSegmentedControl.frame = CGRectMake(115, (44 / 2) - (29 / 2), self.view.bounds.size.width - 125, 29);
+            self.importanceSegmentedControl.selectedSegmentIndex = 0;
+            [cell.contentView addSubview:self.importanceSegmentedControl];
         } else {
             cell.detailTextLabel.text = @"Preguica de implementar";
         }
